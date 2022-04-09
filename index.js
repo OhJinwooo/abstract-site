@@ -15,7 +15,8 @@ class Site {// Site = 클래스 함수
         };//noticeBoard라는 매개변수로 할당해줄 값
         
         noticeBoard.tr = true//그게 아니면 이 메서드는 true를 반환하고 
-        //[ Board {boards:[], article:[], name: '공지사항', tr: true }]
+        //[ Board {boards:[], article:[], name: '공지사항', tr: true },
+        //Board {boards:[], article:[], name: '공지사항', tr: true }]
         
         this.boards.push(noticeBoard);//boards라는 배열에 push한다
     }
@@ -49,7 +50,6 @@ class Board extends Site {
             //iso => parseInt(new Date(iso).getTime() / 1000);//
             this.article.push(article);//this.article에 article값을 push
         } else throw new Error();//ture가 아닐경우 Error
-        
         
         // console.log(this.boards)
     };
@@ -128,3 +128,22 @@ module.exports = {
     Article,
     Comment,
 };
+
+
+// Site(class) {
+//      boards[   
+//          Board(class){
+//               arcticle[
+//                    Article(class){ 
+//                        comment[ 
+//                            Comment(class){
+
+//                         }
+//                     ]
+                                                
+//                 }     
+//             ]
+            
+//         }                
+//     ]
+// }

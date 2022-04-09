@@ -1,3 +1,4 @@
+
 class Site {
     constructor() {
         this.boards = [];
@@ -13,7 +14,7 @@ class Site {
     }
 
     findBoardByName() {
-        return Object(this.boards)[0]
+        return this.boards.pop()
     }   
     
 }
@@ -21,6 +22,7 @@ class Site {
 
 class Board{
     constructor(name) {
+        // console.log(name)
         this.article = [];
         this.name = name;
 
@@ -40,7 +42,7 @@ class Board{
     };
     
     getAllArticles() {
-        return Object(this.article)
+        return this.article
     }
 }
 
@@ -51,31 +53,35 @@ class Article {
         if(!articles) {
             return
         }
-
+        
         if( articles.subject === "" || articles.subject === null ||
             articles.content === "" || articles.content === null || 
             articles.author === "" || articles.author === null) { 
                 throw new Error();
+                
         }
+        
     }
+    
 
     reply(comment) {
         if(this.tr) {
             comment.tr = true
             comment.createdDate = new Date().toISOString();
             this.comment.push(comment);
-            console.log(this.comment)
+            // console.log(this.comment)
         }else throw new Error();
     
     }
     getAllComments() {
-        return Object(this.comment)
+        return this.comment
     }
 }
 
 
 class Comment{
     constructor(comment) {
+        // console.log(comment)
         if( comment.content === "" || comment.content === null ||
             comment.author === "" || comment.author === null) {
                 throw new Error();
